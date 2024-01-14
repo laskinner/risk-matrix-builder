@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from risks_outcomes.views import risks_outcomes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('risks-outcomes/', risks_outcomes, name="risks_outcomes"),
 ]
