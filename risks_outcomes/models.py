@@ -14,6 +14,7 @@ class Hazard(models.Model):
     def __str__(self):
         return self.name
 
+
 class Outcome(models.Model):
     name = models.CharField(max_length=100)  # Name of the hazard
     probability = models.FloatField()  # Probability value of the hazard
