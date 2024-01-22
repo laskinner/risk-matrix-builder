@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazards</title>
+</head>
+
+<body>
+  <h1>Hazards</h1>
+  {% for hazards in object_list %}
+  <h2>{{hazard.name}}</h2>
+  <p>Class: {{hazard.hazard_tag}}</p>
+  <p>Probablity: {{hazard.probability}}</p>
+  <p>Severity: {{hazard.severity}}</p>
+  <p>Outcome: {{hazard.outcome}}</p>
+  {% endfor %}
+</body>
+
+</html>
