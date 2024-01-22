@@ -6,4 +6,4 @@ from .models import Hazard
 
 class HazardList(generic.ListView):
     queryset = Hazard.objects.all()
-    template_name = "risks_outcomes/hazards_list.html"
+    template_name = "risks_outcomes/index.html"
