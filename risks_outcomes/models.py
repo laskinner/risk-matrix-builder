@@ -1,24 +1,34 @@
 from django.db import models
-from django.contrib.auth.models import User
-
-# Create your models here.
+from django.template.defaultfilters import slugify
 
 class Hazard(models.Model):
-    name = models.CharField(max_length=100)  # Name of the hazard
-    hazard_tag = models.CharField(max_length=30)  # Class/Tag of the hazard
-    probability = models.FloatField()  # Probability value of the hazard
-    severity = models.IntegerField()  # Numerical metadata for severity
-    # Association with Outcome - ForeignKey relationship
-    outcome = models.ForeignKey('Outcome', on_delete=models.SET_NULL, null=True, blank=True)
+    name = models.CharField(max_length=100)
+    hazard_tag = models.CharField(max_length=30)
+    probability = models.FloatField()
+    severity = models.IntegerField()
+    outcome = models.ForeignKey('Outcome', on_delete=models.SET_NULL,
+                                null=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
 
 
 class Outcome(models.Model):
-    name = models.CharField(max_length=100)  # Name of the hazard
-    probability = models.FloatField()  # Probability value of the hazard
-    severity = models.IntegerField()  # Numerical metadata for severity
+    name = models.CharField(max_length=100)
+    probability = models.FloatField()
+    severity = models.IntegerField()
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
