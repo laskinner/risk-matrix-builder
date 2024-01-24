@@ -9,21 +9,23 @@
     <!-- Blog Entries Column -->
     <div class="col-12 mt-3 left">
       <div class="row">
-        {% for post in post_list %}
+        {% for outcome in outcome_list %}
         <div class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
                 <div class="image-flash">
-                  <p class="author">Author: {{ post.author }}</p>
+                  <p class="author">Outcome Tag: {{ hazard.hazard_tag }}</p>
                 </div>
               </div>
               <a href="#" class="post-link">
-                <h2 class="card-title">{{ hazard.title }}</h2>
+                <h2 class="card-title">{{ outcome.name }}</h2>
               </a>
 
               <hr />
-              <p class="card-text text-muted h6">{{ post.created_on}}
+              <p class="card-text text-muted h6">Probability: {{ outcome.probability }}%
+              </p>
+              <p class="card-text text-muted h6">Severity: {{ outcome.severity }}
               </p>
             </div>
           </div>
