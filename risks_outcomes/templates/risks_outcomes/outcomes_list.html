@@ -18,7 +18,7 @@
                   <p class="author">Outcome Class: {{ hazard.hazard_tag }}</p>
                 </div>
               </div>
-              <a href="#" class="post-link">
+              <a href="{% url 'outcome_detail' outcome.slug %}" class="detail-link">
                 <h2 class="card-title">{{ outcome.name }}</h2>
               </a>
 

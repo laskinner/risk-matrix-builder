@@ -1,4 +1,3 @@
-
 body {
     background-color: #F9FAFC;
 }
@@ -92,22 +91,22 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.detail-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.detail-link:hover,
 .page-link {
     color: #E84610;
 }
 
-.post-title {
+.detail-title {
     margin-top: 10%;
     margin-left: 5%;
 }
 
-.post-subtitle {
+.detail-subtitle {
     margin-left: 5%;
     color: lightgray;
 }
