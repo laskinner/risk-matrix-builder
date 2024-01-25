@@ -30,11 +30,17 @@ def hazard_detail(request, slug):
 
     queryset = Hazard.objects.all()
     hazard = get_object_or_404(queryset, slug=slug)
+    comments = hazard.hazard_comments.filter(approved=True).order_by("-created_on")
+    comment_count = hazard.hazard_comments.filter(approved=True).count()
 
     return render(
         request,
         "risks_outcomes/hazard_detail.html",
-        {"hazard": hazard},
+        {
+            "hazard": hazard,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
     )
 
 def outcome_detail(request, slug):
@@ -53,10 +59,16 @@ def outcome_detail(request, slug):
 
     queryset = Outcome.objects.all()
     outcome = get_object_or_404(queryset, slug=slug)
+    comments = outcome.outcome_comments.filter(approved=True).order_by("-created_on")
+    comment_count = outcome.outcome_comments.filter(approved=True).count()
 
     return render(
         request,
         "risks_outcomes/outcome_detail.html",
-        {"outcome": outcome},
+        {
+            "outcome": outcome,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
     )
 
