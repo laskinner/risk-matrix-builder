@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
-from .models import Hazard, Outcome 
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib import messages
+from .forms import CommentForm
+from .models import Hazard, Outcome, Comment
 
 # Create your views here.
 
@@ -27,11 +31,24 @@ def hazard_detail(request, slug):
 
     :template:`risks_outcomes/hazard_detail.html`
     """
-
     queryset = Hazard.objects.all()
     hazard = get_object_or_404(queryset, slug=slug)
     comments = hazard.hazard_comments.filter(approved=True).order_by("-created_on")
     comment_count = hazard.hazard_comments.filter(approved=True).count()
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.hazard = hazard
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
+    else:
+        comment_form = CommentForm()
 
     return render(
         request,
@@ -40,6 +57,7 @@ def hazard_detail(request, slug):
             "hazard": hazard,
             "comments": comments,
             "comment_count": comment_count,
+            "comment_form": comment_form,
         },
     )
 
@@ -62,6 +80,20 @@ def outcome_detail(request, slug):
     comments = outcome.outcome_comments.filter(approved=True).order_by("-created_on")
     comment_count = outcome.outcome_comments.filter(approved=True).count()
 
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.outcome = outcome
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
+    else:
+        comment_form = CommentForm()
+
     return render(
         request,
         "risks_outcomes/outcome_detail.html",
@@ -69,6 +101,69 @@ def outcome_detail(request, slug):
             "outcome": outcome,
             "comments": comments,
             "comment_count": comment_count,
+            "comment_form": comment_form,
         },
     )
 
+def comment_edit(request, slug, comment_id, comment_type):
+    """
+    View to edit comments for either Hazard or Outcome.
+    """
+    if request.method == "POST":
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+
+            if comment_type == 'hazard':
+                hazard = get_object_or_404(Hazard, slug=slug)
+                return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
+            elif comment_type == 'outcome':
+                outcome = get_object_or_404(Outcome, slug=slug)
+                return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    # Redirect to the appropriate detail page based on comment_type
+    if comment_type == 'hazard':
+        return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
+    elif comment_type == 'outcome':
+        return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
+
+    # Redirect to home if comment_type is not recognized
+    return redirect('home')
+
+def hazard_comment_delete(request, slug, comment_id):
+    """
+    View to delete a comment related to a Hazard.
+    """
+    hazard = get_object_or_404(Hazard, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id, hazard=hazard)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
+
+
+def outcome_comment_delete(request, slug, comment_id):
+    """
+    View to delete a comment related to an Outcome.
+    """
+    outcome = get_object_or_404(Outcome, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id, outcome=outcome)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
