@@ -1,12 +1,24 @@
+:root {
+    /* Define primary and secondary colors */
+    --primary-color: #0d9df0;
+    --secondary-color: #a8d5ba; /* Washed-out green */
+    --text-color: #4A4A4F;
+    --background-color: #F9FAFC;
+    --dark-bg-color: #445261;
+    --light-bg-color: #fff;
+}
+
 body {
-    background-color: #F9FAFC;
+    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif; /* Using Roboto for a modern look */
+    color: var(--text-color);
 }
 
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: var(--text-color);
 }
 
 .red-o {
@@ -18,45 +30,37 @@ body {
 }
 
 .light-bg {
-    background-color: #fff;
+    background-color: var(--light-bg-color);
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: var(--dark-bg-color);
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: var(--background-color);
 }
 
+/* Navbar */
+.custom-navbar {
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* Card Styling */
 .card {
-    border: none;
-    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--light-bg-color); /* Changed from transparent */
 }
 
-.image-container {
-    position: relative;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #188181;
-}
-
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
+/* Masthead */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -67,7 +71,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: var(--dark-bg-color);
     color: white;
     position: relative;
 }
@@ -84,21 +88,20 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: var(--dark-bg-color);
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
 }
 
-.detail-link {
-    text-decoration: none;
-    color: #445261;
+/* Links and Buttons */
+.detail-link, .link, .btn-signup, .btn-edit {
+    color: var(--primary-color);
 }
 
-.detail-link:hover,
-.page-link {
-    color: #E84610;
+.detail-link:hover, .link:hover, .btn-signup:hover, .btn-edit:hover {
+    color: var(--secondary-color);
 }
 
 .detail-title {
@@ -111,26 +114,20 @@ body {
     color: lightgray;
 }
 
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: var(--primary-color);
 }
 
 .link {
-    color: #23BBBB;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: var(--dark-bg-color);
     text-decoration: underline;
 }
 
@@ -160,7 +157,5 @@ body {
     color: rgb(222, 146, 168);
 }
 
-.custom-navbar {
-    border-bottom: 3px solid #0d9df0;
-}
-
+/* Additional Styling */
+/* Retain other styles as they are, and add more as required */

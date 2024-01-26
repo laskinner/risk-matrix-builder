@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<!-- index.html content starts here -->
+<!-- outcomes_list.html content starts here -->
 <div class="container-fluid">
   <div class="row">
 
@@ -15,7 +15,7 @@
             <div class="card-body">
               <div class="image-container">
                 <div class="image-flash">
-                  <p class="author">Outcome Class: {{ hazard.hazard_tag }}</p>
+                  <p class="author">Class: {{ hazard.hazard_tag }}</p>
                 </div>
               </div>
               <a href="{% url 'outcome_detail' outcome.slug %}" class="detail-link">
@@ -50,5 +50,5 @@
   {% endif %}
 </div>
 
-<!-- index.html content ends here -->
+<!-- outocemes_list.html content ends here -->
 {% endblock %}
