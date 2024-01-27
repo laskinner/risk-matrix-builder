@@ -18,18 +18,19 @@
   </div>
 </div>
 
+<!-- Display the content of the discrption -->
 <div class="container">
   <div class="row">
     <div class="col card mb-4  mt-3 left  top">
       <div class="card-body">
-        <!-- The post content goes inside the card-text. -->
-        <!-- Use the | safe filter inside the template tags -->
-        <p class="card-text">
-          {{ hazard.content | safe }}
-        </p>
+        <h2>Description</h2>
+        <article class="card-text">
+            {{ outcome.content | safe }}
+        </article>
       </div>
     </div>
   </div>
+
   <!-- Displaying count of comments -->
   <div class="row">
     <div class="col-12">
