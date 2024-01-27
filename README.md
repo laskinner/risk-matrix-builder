@@ -39,6 +39,9 @@ Causa is a Django-based web application focused on identifying, managing, and mi
 
 ### Features Left to Implement
 
+### Resources
+- The ability at attach resources, such as scientific papers, research papers, graphs, charts, memos, or anything else that might help collabortors better understand the nature of the hazard or outcome.
+
 #### User Dashboard
 - A personalized space for users to track their contributions and receive updates.
 - Aims to enhance user engagement and personalize the experience.
