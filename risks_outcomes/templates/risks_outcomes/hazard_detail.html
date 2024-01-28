@@ -13,15 +13,28 @@
         <p class="detail-subtitle">Severity: {{ hazard.severity }}</p>
         <p class="detail-subtitle">Outcome: {{ hazard.outcome}}</p>
       </div>
-      <div class="d-none d-md-block col-md-6 masthead-image">
-        <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
-      </div>
     </div>
   </div>
 </div>
 
-<!-- Display the content of the discrption -->
+<!-- Begin container of main body -->
 <div class="container">
+
+<!-- Resources Section -->
+  <div class="row">
+    <div class="col card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <div class="resources">
+            <h3>Resources</h3>
+            {% for document in hazard.documents.all %}
+                <p><a href="{{ document.file.url }}" download><i class="fa fa-download"></i> {{ document.file.name }}</a></p>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Display the content of the discrption -->
   <div class="row">
     <div class="col card mb-4  mt-3 left  top">
       <div class="card-body">

@@ -61,3 +61,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
+
+class Document(models.Model):
+    file = CloudinaryField('document')
+    hazard = models.ForeignKey(Hazard, related_name='documents', on_delete=models.CASCADE, null=True, blank=True)
+    outcome = models.ForeignKey(Outcome, related_name='documents', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return f"Document for {self.hazard.name if self.hazard else self.outcome.name}"
