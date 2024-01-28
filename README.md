@@ -147,6 +147,9 @@ While document management works fine through the admin portal, documents are bug
 #### Favicon
 Favicon needs to be added to eliminate 404 errors from console, and provide image in browser tab
 
+#### Deleting Comments
+The Delete comment functionality currently doesn't work. This is likely due to a routing issue, either with the way the javascript helper in comments.js is constructing the URL, or in the way the urls.py is expecting. This proved to be a very difficult problem to understand. For example, editing comments had a similar issue, and it took roughly 1 working day to fix. After many hours of trying to fix this issue, it had to be left as it is in order to complete the project.
+
 ### Styles
 #### List view
 Currently, the list view could use some attention, specically around the cards.
