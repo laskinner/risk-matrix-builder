@@ -46,6 +46,11 @@ body {
     border-bottom: 3px solid var(--primary-color);
 }
 
+.custom-left-border {
+    border-left: 2px --text-color;
+    padding-left: 10px; 
+}
+
 /* Card Styling */
 .card {
     border: 1px solid var(--secondary-color);
