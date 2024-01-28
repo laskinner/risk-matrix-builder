@@ -5,17 +5,22 @@
 <div class="masthead">
   <div class="container">
     <div class="row g-0">
-      <div class="col-md-6 masthead-text">
+      <div class="col-md-4 mx-3 masthead-text rounded">
         <h1 class="detail-title">{{ outcome.name }}</h1>
         <p class="detail-subtitle">{{ outcome.author }} | {{ outcome.created_on }}</p>
         <p class="detail-subtitle">Probability: {{ outcome.probability }}</p>
         <p class="detail-subtitle">Severity: {{ outcome.severity }}</p>
       </div>
-      <div class="resources">
-          <h3>Resources</h3>
-          {% for document in hazard.documents.all %}
-              <p><a href="{{ document.file.url }}" download><i class="fa fa-download"></i> {{ document.file.name }}</a></p>
-          {% endfor %}
+      <!-- Resources Section -->
+      <div class="col card mx-3 left top">
+        <div class="card-body">
+          <div class="resources">
+              <h3>Resources</h3>
+              {% for document in hazard.documents.all %}
+                  <p><a href="{{ document.file.url }}" download><i class="fa fa-download"></i> {{ document.file.name }}</a></p>
+              {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -24,19 +29,6 @@
 <!-- Begin container of main body -->
 <div class="container">
 
-  <!-- Resources Section -->
-  <div class="row">
-    <div class="col card mb-4  mt-3 left  top">
-      <div class="card-body">
-        <div class="resources">
-            <h3>Resources</h3>
-            {% for document in hazard.documents.all %}
-                <p><a href="{{ document.file.url }}" download><i class="fa fa-download"></i> {{ document.file.name }}</a></p>
-            {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Display the content of the discrption -->
   <div class="row">
@@ -63,7 +55,7 @@
   </div>
   <!-- Displaying Comments -->
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
+    <div class="col-md-7 card mb-4 mt-3 ">
       <h3>Comments:</h3>
       <div class="card-body">
 
@@ -100,7 +92,7 @@
     </div>
 
     <!-- Creating New Comments -->
-    <div class="col-md-4 card mb-4 mt-3">
+    <div class="col-md-4 card mb-4 mt-3 mx-5">
       <div class="card-body">
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
