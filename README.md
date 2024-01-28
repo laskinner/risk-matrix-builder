@@ -47,6 +47,13 @@ Causa is a Django-based web application focused on identifying, managing, and mi
 
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/0b3aa621-9720-43bc-99fb-2ba433e7e47c)
 
+#### Document Management
+- Allows admins to upload supporting documents, such as scientific papers or research, to specific hazards and outcomes.
+- Allows users to download supporting documents through the UI.
+
+#### Description
+- Allows admins to create valuable descriptions for hazards and outcomes.
+- Allows users to read descriptions to better understand the nature of the outcomes.
 
 #### Responsive Design
 - Optimized for various devices, ensuring accessibility and a consistent experience across all screen sizes.
@@ -131,9 +138,30 @@ risks_outcomes/urls.py:
 
 
 ## Unfixed Bugs and Issues
+All unfixed bugs and issues are catalogued in the [Kanban board]([url](https://github.com/users/laskinner/projects/6/views/1)).
 
-Any identified bugs or issues, their impact, and reasons for not addressing them (excluding time constraints or difficulty understanding implementation) are documented here.
+### Functionality
+#### Document management
+While document management works fine through the admin portal, documents are buggy and troublesome in the app UI. Document names aren't being displayed, and the download link doesn't fuction. These need to be address and this feature will work.
 
+#### Favicon
+Favicon needs to be added to eliminate 404 errors from console, and provide image in browser tab
+
+### Styles
+#### List view
+Currently, the list view could use some attention, specically around the cards.
+
+#### Hazard and Outcome details
+Probability needs to better displayed as integars, not floats, and with % signs
+
+#### Edit Button
+The edit button for comments lacks styling
+
+## Data
+#### Fixtures
+The project could use more data via fixtures to display pagination, and enrich the overall look and feel of the site.
+
+Currently 
 # Deployment
 
 ## Deployment Process
