@@ -47,7 +47,7 @@ body {
 }
 
 .custom-left-border {
-    border-left: 2px --text-color;
+    border-left: 2px var(--text-color);
     padding-left: 10px; 
 }
 

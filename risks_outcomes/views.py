@@ -8,15 +8,18 @@ from .models import Hazard, Outcome, Comment
 
 # Create your views here.
 
+
 class HazardList(generic.ListView):
     queryset = Hazard.objects.all()
     template_name = "risks_outcomes/hazards_list.html"
     paginate_by = 6
 
+
 class OutcomeList(generic.ListView):
     queryset = Outcome.objects.all()
     template_name = "risks_outcomes/outcomes_list.html"
     paginate_by = 6
+
 
 def hazard_detail(request, slug):
     """
@@ -33,7 +36,9 @@ def hazard_detail(request, slug):
     """
     queryset = Hazard.objects.all()
     hazard = get_object_or_404(queryset, slug=slug)
-    comments = hazard.hazard_comments.filter(approved=True).order_by("-created_on")
+    comments = hazard.hazard_comments.filter(approved=True).order_by(
+        "-created_on"
+        )
     comment_count = hazard.hazard_comments.filter(approved=True).count()
 
     if request.method == "POST":
@@ -61,6 +66,7 @@ def hazard_detail(request, slug):
         },
     )
 
+
 def outcome_detail(request, slug):
     """
     Display an individual :model:`risks_outcomes.Outcome`.
@@ -77,7 +83,9 @@ def outcome_detail(request, slug):
 
     queryset = Outcome.objects.all()
     outcome = get_object_or_404(queryset, slug=slug)
-    comments = outcome.outcome_comments.filter(approved=True).order_by("-created_on")
+    comments = outcome.outcome_comments.filter(approved=True).order_by(
+        "-created_on"
+            )
     comment_count = outcome.outcome_comments.filter(approved=True).count()
 
     if request.method == "POST":
@@ -105,6 +113,7 @@ def outcome_detail(request, slug):
         },
     )
 
+
 def comment_edit(request, slug, comment_id, comment_type):
     """
     View to edit comments for either Hazard or Outcome.
@@ -121,12 +130,18 @@ def comment_edit(request, slug, comment_id, comment_type):
 
             if comment_type == 'hazard':
                 hazard = get_object_or_404(Hazard, slug=slug)
-                return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
+                return HttpResponseRedirect(reverse(
+                    'hazard_detail', args=[slug]
+                        ))
             elif comment_type == 'outcome':
                 outcome = get_object_or_404(Outcome, slug=slug)
-                return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
+                return HttpResponseRedirect(reverse(
+                    'outcome_detail', args=[slug]
+                    ))
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!'
+                )
 
     # Redirect to the appropriate detail page based on comment_type
     if comment_type == 'hazard':
@@ -136,6 +151,7 @@ def comment_edit(request, slug, comment_id, comment_type):
 
     # Redirect to home if comment_type is not recognized
     return redirect('home')
+
 
 def hazard_comment_delete(request, slug, comment_id):
     """
@@ -148,7 +164,9 @@ def hazard_comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!'
+            )
 
     return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
 
@@ -164,6 +182,8 @@ def outcome_comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!'
+                )
 
     return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
