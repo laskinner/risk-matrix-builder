@@ -84,5 +84,7 @@ class Document(models.Model):
                                 blank=True)
 
     def __str__(self):
-        return f
-        "Document for {self.hazard.name if self.hazard else self.outcome.name}"
+        return (
+            f"Document for "
+            f"{self.hazard.name if self.hazard else self.outcome.name}"
+        )
