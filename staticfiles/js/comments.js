@@ -48,7 +48,7 @@ for (let button of deleteButtons) {
     let slug = e.target.getAttribute("data-slug");
     let commentType = e.target.getAttribute("data-type");
     // Update the deleteConfirm link's href to match Django's URL pattern
-    deleteConfirm.href = `/${commentType}/${slug}/comments/${commentId}/delete/`;
+    deleteConfirm.href = `${commentType}/comments/${commentId}/delete/`;
     deleteModal.show();
   });
 }
