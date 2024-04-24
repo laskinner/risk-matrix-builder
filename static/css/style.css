@@ -173,21 +173,30 @@ body {
 /* Message Alert style */
 #msg-container {
   position: fixed;
-  bottom: 0;
+  bottom: 100px;
   right: 0;
   left: 0;
   z-index: 1050;
   padding: 20px;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.msg-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 div.alert {
-  border: 2px solid var(--primary-color) !important;
   margin-top: 10px;
   width: auto;
   max-width: 600px;
+  background-color: lightgreen;
+  color: black;
 }
 
 /* Additional Styling */
