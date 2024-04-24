@@ -104,9 +104,8 @@ body {
 /* Links and Buttons */
 .detail-link,
 .link,
-.btn-signup,
-.btn-edit {
-  color: var(--primary-color);
+.btn-signup {
+  background: lightgreen;
 }
 
 .detail-link:hover,
