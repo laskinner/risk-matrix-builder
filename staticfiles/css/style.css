@@ -183,6 +183,10 @@ body {
   justify-content: center;
 }
 
+#msg-container:empty {
+  display: none;
+}
+
 .msg-wrapper {
   display: flex;
   justify-content: center;
