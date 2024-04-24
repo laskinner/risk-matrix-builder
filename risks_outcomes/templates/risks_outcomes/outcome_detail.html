@@ -82,7 +82,15 @@
             <button class="btn btn-edit"
               comment_id="{{ comment.id }}"
               data-slug="{{ outcome.slug }}"
-              data-type="outcome">Edit</button>
+              data-type="outcome">
+              Edit
+            </button>
+            <button class="btn btn-delete"
+              comment_id="{{ comment.id }}"
+              data-slug="{{ outcome.slug }}"
+              data-type="outcome">
+              Delete
+            </button>
           {% endif %}
         </div>
 

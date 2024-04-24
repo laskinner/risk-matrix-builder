@@ -183,8 +183,8 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.alert {
-  border: 2px solid var(--primary-color);
+div.alert {
+  border: 2px solid var(--primary-color) !important;
   margin-top: 10px;
   width: auto;
   max-width: 600px;

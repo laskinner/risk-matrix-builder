@@ -82,17 +82,17 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-delete"
-            comment_id="{{ comment.id }}"
-            data-slug="{{ hazard.slug }}"
-            data-type="{{ hazard.slug }}">
-            Delete
-          </button>
           <button class="btn btn-edit"
             comment_id="{{ comment.id }}"
             data-slug="{{ hazard.slug }}"
             data-type="hazard">
             Edit
+          </button>
+          <button class="btn btn-delete"
+            comment_id="{{ comment.id }}"
+            data-slug="{{ hazard.slug }}"
+            data-type="hazard">
+            Delete
           </button>
           {% endif %}
         </div>
