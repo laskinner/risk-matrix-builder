@@ -97,12 +97,36 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
   </script>
+  <!--- Resets forms --->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const successMessage = document.querySelector('.alert');
       const commentForm = document.getElementById('commentForm'); // ensure this is the correct ID
       if (successMessage && commentForm) {
         commentForm.reset(); // Resets the form if there's a success message on the page
+      }
+    });
+  </script>
+  <!--- Clears the #msg-container --->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const msgContainer = document.getElementById('msg-container');
+
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (!msgContainer.hasChildNodes()) {
+            msgContainer.style.display = 'none';  // Manually set display to none if empty
+          } else {
+            msgContainer.style.display = 'flex';  // Ensure it's visible when not empty
+          }
+        });
+      });
+
+      observer.observe(msgContainer, { childList: true });
+
+      // Trigger visibility check on page load in case messages are already empty
+      if (!msgContainer.hasChildNodes()) {
+        msgContainer.style.display = 'none';
       }
     });
   </script>
