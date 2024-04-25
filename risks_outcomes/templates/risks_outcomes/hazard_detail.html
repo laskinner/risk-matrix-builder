@@ -152,4 +152,35 @@
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const commentForm = document.getElementById('commentForm');
+    const successMessage = document.querySelector('.alert-success');  // Use the correct selector for success messages
+    const msgContainer = document.getElementById('msg-container');
+
+    if (successMessage && commentForm) {
+      setTimeout(function() {
+        // Assumes messages fade out or are manually closed by the user
+        const visibleMessages = msgContainer.querySelectorAll('.alert.show');
+        if (visibleMessages.length === 0) {
+          msgContainer.style.display = 'none';
+        }
+      }, 500);  // Adjust timing based on UX for message display
+    }
+
+    // Observer to dynamically check message visibility
+    const observer = new MutationObserver(function() {
+      const messages = msgContainer.querySelectorAll('.alert');
+      const isVisible = Array.from(messages).some(message => message.classList.contains('show'));
+      msgContainer.style.display = isVisible ? 'flex' : 'none';
+    });
+
+    observer.observe(msgContainer, { childList: true, attributes: true, subtree: true });
+
+    // Initial check to see if messages are already in DOM but hidden
+    const initialMessages = msgContainer.querySelectorAll('.alert');
+    const hasVisibleInitial = Array.from(initialMessages).some(message => message.classList.contains('show'));
+    msgContainer.style.display = hasVisibleInitial ? 'flex' : 'none';
+  });
+</script>
 {% endblock %}
