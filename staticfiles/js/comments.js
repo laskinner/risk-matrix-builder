@@ -1,17 +1,3 @@
-function resetForm() {
-  commentForm.reset(); // Reset all input fields in the form
-}
-
-// Add an event listener for form submission
-commentForm.addEventListener("submit", (event) => {
-  // Prevent the default form submission behavior
-  event.preventDefault();
-
-  // Place additional needed from validation here
-
-  resetForm(); // Resets the form fields
-});
-
 const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_body");
 const commentForm = document.getElementById("commentForm");
