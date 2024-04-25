@@ -156,8 +156,6 @@
     const msgContainer = document.getElementById('msg-container');
 
     if (successMessage && commentForm) {
-      commentForm.reset();  // Reset the form if there's a success message on the page
-
       setTimeout(function() {
         // Assumes messages fade out or are manually closed by the user
         const visibleMessages = msgContainer.querySelectorAll('.alert.show');

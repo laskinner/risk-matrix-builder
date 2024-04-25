@@ -36,9 +36,7 @@ def hazard_detail(request, slug):
     """
     queryset = Hazard.objects.all()
     hazard = get_object_or_404(queryset, slug=slug)
-    comments = hazard.hazard_comments.filter(approved=True).order_by(
-        "-created_on"
-        )
+    comments = hazard.hazard_comments.filter(approved=True).order_by("-created_on")
     comment_count = hazard.hazard_comments.filter(approved=True).count()
 
     if request.method == "POST":
@@ -49,8 +47,7 @@ def hazard_detail(request, slug):
             comment.hazard = hazard
             comment.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                request, messages.SUCCESS, "Comment submitted and awaiting approval"
             )
     else:
         comment_form = CommentForm()
@@ -83,35 +80,28 @@ def outcome_detail(request, slug):
 
     queryset = Outcome.objects.all()
     outcome = get_object_or_404(queryset, slug=slug)
-    comments = outcome.outcome_comments.filter(approved=True).order_by(
-        "-created_on"
-            )
-    comment_count = outcome.outcome_comments.filter(approved=True).count()
-
     if request.method == "POST":
-        comment_form = CommentForm(data=request.POST)
+        comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.outcome = outcome
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
-            )
+            messages.success(request, "Comment submitted and awaiting approval")
+            return redirect("outcome_detail", slug=slug)  # Redirect to the same page
     else:
         comment_form = CommentForm()
 
-    return render(
-        request,
-        "risks_outcomes/outcome_detail.html",
-        {
-            "outcome": outcome,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form,
-        },
-    )
+    comments = outcome.outcome_comments.filter(approved=True).order_by("-created_on")
+    comment_count = comments.count()
+
+    context = {
+        "outcome": outcome,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+    }
+    return render(request, "risks_outcomes/outcome_detail.html", context)
 
 
 def comment_edit(request, slug, comment_id, comment_type):
@@ -126,31 +116,25 @@ def comment_edit(request, slug, comment_id, comment_type):
             comment = comment_form.save(commit=False)
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, "Comment Updated!")
 
-            if comment_type == 'hazard':
+            if comment_type == "hazard":
                 hazard = get_object_or_404(Hazard, slug=slug)
-                return HttpResponseRedirect(reverse(
-                    'hazard_detail', args=[slug]
-                        ))
-            elif comment_type == 'outcome':
+                return HttpResponseRedirect(reverse("hazard_detail", args=[slug]))
+            elif comment_type == "outcome":
                 outcome = get_object_or_404(Outcome, slug=slug)
-                return HttpResponseRedirect(reverse(
-                    'outcome_detail', args=[slug]
-                    ))
+                return HttpResponseRedirect(reverse("outcome_detail", args=[slug]))
         else:
-            messages.add_message(
-                request, messages.ERROR, 'Error updating comment!'
-                )
+            messages.add_message(request, messages.ERROR, "Error updating comment!")
 
     # Redirect to the appropriate detail page based on comment_type
-    if comment_type == 'hazard':
-        return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
-    elif comment_type == 'outcome':
-        return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
+    if comment_type == "hazard":
+        return HttpResponseRedirect(reverse("hazard_detail", args=[slug]))
+    elif comment_type == "outcome":
+        return HttpResponseRedirect(reverse("outcome_detail", args=[slug]))
 
     # Redirect to home if comment_type is not recognized
-    return redirect('home')
+    return redirect("home")
 
 
 def hazard_comment_delete(request, slug, comment_id):
@@ -162,13 +146,13 @@ def hazard_comment_delete(request, slug, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, "Comment deleted!")
     else:
         messages.add_message(
-            request, messages.ERROR, 'You can only delete your own comments!'
-            )
+            request, messages.ERROR, "You can only delete your own comments!"
+        )
 
-    return HttpResponseRedirect(reverse('hazard_detail', args=[slug]))
+    return HttpResponseRedirect(reverse("hazard_detail", args=[slug]))
 
 
 def outcome_comment_delete(request, slug, comment_id):
@@ -180,10 +164,10 @@ def outcome_comment_delete(request, slug, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, "Comment deleted!")
     else:
         messages.add_message(
-            request, messages.ERROR, 'You can only delete your own comments!'
-                )
+            request, messages.ERROR, "You can only delete your own comments!"
+        )
 
-    return HttpResponseRedirect(reverse('outcome_detail', args=[slug]))
+    return HttpResponseRedirect(reverse("outcome_detail", args=[slug]))
