@@ -34,34 +34,31 @@ def hazard_detail(request, slug):
 
     :template:`risks_outcomes/hazard_detail.html`
     """
-    queryset = Hazard.objects.all()
-    hazard = get_object_or_404(queryset, slug=slug)
+    hazard = get_object_or_404(Hazard, slug=slug)
     comments = hazard.hazard_comments.filter(approved=True).order_by("-created_on")
-    comment_count = hazard.hazard_comments.filter(approved=True).count()
+    comment_count = comments.count()
 
     if request.method == "POST":
-        comment_form = CommentForm(data=request.POST)
+        comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.hazard = hazard
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Comment submitted and awaiting approval"
-            )
+            messages.success(request, "Comment submitted and awaiting approval")
+            return redirect(
+                "hazard_detail", slug=slug
+            )  # Redirect to avoid resubmission
     else:
         comment_form = CommentForm()
 
-    return render(
-        request,
-        "risks_outcomes/hazard_detail.html",
-        {
-            "hazard": hazard,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form,
-        },
-    )
+    context = {
+        "hazard": hazard,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+    }
+    return render(request, "risks_outcomes/hazard_detail.html", context)
 
 
 def outcome_detail(request, slug):
@@ -78,8 +75,7 @@ def outcome_detail(request, slug):
     :template:`risks_outcomes/outcome_detail.html`
     """
 
-    queryset = Outcome.objects.all()
-    outcome = get_object_or_404(queryset, slug=slug)
+    outcome = get_object_or_404(Outcome, slug=slug)
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
