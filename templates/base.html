@@ -41,10 +41,10 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'outcomes' %}">Outcomes</a>
+            <a class="nav-link {% if request.path == 'outcomes' %}active{% endif %}" href="{% url 'outcomes' %}">Outcomes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'hazards' %}">Hazards</a>
+            <a class="nav-link {% if request.path == 'hazards' %}active{% endif %}" href="{% url 'hazards' %}">Hazards</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item custom-left-border">
