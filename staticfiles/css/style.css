@@ -189,8 +189,7 @@ body {
 
 .nav-link.active {
   color: white;
-  background-color: blue;
-  padding: 5px 10px;
+  background-color: lightskyblue;
   border-radius: 5px;
 }
 
