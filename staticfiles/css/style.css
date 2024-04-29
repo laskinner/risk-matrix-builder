@@ -109,9 +109,7 @@ body {
 }
 
 .detail-link:hover,
-.link:hover,
-.btn-signup:hover,
-.btn-edit:hover {
+.link:hover {
   color: var(--secondary-color);
 }
 
@@ -125,10 +123,13 @@ body {
   color: lightgray;
 }
 
-.btn-signup:hover,
 .btn-signup:active {
   background-color: #fff;
   color: var(--primary-color);
+}
+
+.btn-signup:hover {
+  background: darkgreen;
 }
 
 .link {
@@ -152,8 +153,16 @@ body {
   background: lightgray;
 }
 
+.btn-delete:hover {
+  background: darkgray;
+}
+
 .btn-edit {
   background: khaki;
+}
+
+.btn-edit:hover {
+  background: darkkhaki;
 }
 
 .btn-like:hover,
@@ -161,6 +170,28 @@ body {
   color: #e84610;
   background: transparent;
   border: none;
+}
+
+/* nav link styling */
+.nav-link {
+  color: gray;
+  text-decoration: none;
+  transition:
+    color 0.3s,
+    border-color 0.3s; /* smooth transitions */
+  border-bottom: 2px solid transparent; /* Invisible border to maintain layout */
+}
+
+.nav-link:hover {
+  color: darkgray;
+  border-bottom: 2px solid darkgray;
+}
+
+.nav-link.active {
+  color: white;
+  background-color: blue;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .faded {
