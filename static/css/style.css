@@ -187,7 +187,7 @@ body {
   border-bottom: 2px solid darkgray;
 }
 
-.nav-link.active {
+.nav-link:active {
   color: white;
   background-color: blue;
   padding: 5px 10px;
