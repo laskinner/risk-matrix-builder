@@ -93,30 +93,34 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 
 # Testing
 
-## Overview
+## CRUD Comments -- Hazards
+| As a/an    | I want to be able to             | So that I can                                       | Expected Results                                   | Actual Results                                     |
+|------------|----------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| User       | add a comment to a specific hazard | share my observations or concerns                    | Comment is added and visible under the hazard      |                                                     |
+| User       | view comments on a specific hazard | see what others think or have reported               | All comments on the hazard are visible             |                                                     |
+| Commenter  | edit my comment on a hazard        | correct errors or add new information                | Comment is updated with new text                   |                                                     |
+| Commenter  | delete my comment on a hazard      | remove my input if it is no longer relevant or needed| Comment is removed and no longer visible           |                                                     |
 
-This section outlines the testing procedures and results for the "Causa" project, focusing on functionality, compatibility, and known issues.
+## CRUD Comments -- Outcomes
+| As a/an    | I want to be able to               | So that I can                                       | Expected Results                                   | Actual Results                                     |
+|------------|------------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| User       | add a comment to a specific outcome | provide feedback or share my thoughts                | Comment is added and visible under the outcome     |                                                     |
+| User       | view comments on a specific outcome | understand community reactions or additional insights| All comments on the outcome are visible            |                                                     |
+| Commenter  | edit my comment on an outcome       | update my perspective or information                 | Comment is updated with new text                   |                                                     |
+| Commenter  | delete my comment on an outcome     | remove my remarks if they are outdated or incorrect  | Comment is removed and no longer visible           |                                                     |
 
-## Feature Testing
-
-### Comment CRUD -- Hazards
-
-### Comment CRUD -- Outcomes
-
-### User Account Creation and Authentication
+## User Account Creation and Authentication
+| As a/an           | I want to be able to                          | So that I can                                       | Expected Results                                   | Actual Results                                     |
+|-------------------|-----------------------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Visitor           | sign up for a new user account                | gain access to posting and commenting features       | User account is created and user can log in        |                                                     |
+| Registered User   | log in to my account                          | access my user profile and personalize my experience | User is logged in and directed to profile page     |                                                     |
+| Logged-in User    | log out of my account                         | ensure my account is secure when not in use          | User is logged out and session is ended            |                                                     |
+| System            | verify the identity of a user logging in      | secure user accounts and prevent unauthorized access | User identity is confirmed before access is granted|                                                     |
 
 
 Each feature of the project was thoroughly tested to ensure it functions as intended. To this end, acceptance criteria are included in feature tickets for specific testing.
 
-
-
-Aspects of testing included:
-
-- **Hazard and Outcome Lists:** Verified for accurate display and user interaction.
-- **Detail Pages:** Ensured comprehensive information display and user engagement through comments.
-- **Comment System:** Tested for user input validation and proper display.
-- **User Authentication:** Validated security and user-specific features.
-- **Responsive Design:** Checked across various view ports for consistent user experience.
+## Responsive Design
 
 ## Browser and Device Compatibility
 
