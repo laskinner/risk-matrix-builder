@@ -1,6 +1,6 @@
 # Causa -- A Risk Management Tool
 
-Causa is a Django-based web application focused on identifying, managing, and mitigating various hazards and their associated outcomes. Designed for risk management professionals operating in high-stakes enivornemnts, such as human space flight, Causa offers a platform to catalog and discuss potential risks in various outcomes. Admins can contribute by adding hazards, detailing their probability and severity, and suggesting potential outcomes. The community aspect of Causa allows for a collaborative approach, where users can comment on and discuss each hazard, providing insights and solutions. This interactive environment makes Causa not just a risk assessment tool, but also a hub for learning and sharing knowledge about risk management in a dynamic, user-friendly interface.
+Causa is a Django-based web application focused on identifying, cataloging, and mitigating various hazards and their associated outcomes. Designed for risk management professionals operating in high-stakes enivornemnts, such as human space flight, Causa offers a platform to catalog and discuss potential risks in various outcomes. Admins can contribute by adding hazards, detailing their probability and severity, and suggesting potential outcomes. The community aspect of Causa allows for a collaborative approach, where users can comment on and discuss each hazard, providing insights and solutions. This interactive environment makes Causa not just a risk assessment tool, but also a hub for learning and sharing knowledge about risk management in a dynamic, user-friendly interface.
 
 
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/05dc9ac1-257b-4dfb-a6b1-15c7ccff6c34)
@@ -99,7 +99,16 @@ This section outlines the testing procedures and results for the "Causa" project
 
 ## Feature Testing
 
+### Comment CRUD -- Hazards
+
+### Comment CRUD -- Outcomes
+
+### User Account Creation and Authentication
+
+
 Each feature of the project was thoroughly tested to ensure it functions as intended. To this end, acceptance criteria are included in feature tickets for specific testing.
+
+
 
 Aspects of testing included:
 
