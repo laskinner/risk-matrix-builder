@@ -71,7 +71,7 @@ Both and Hazard and Outcome Detail pages are bosed upon the following mock-up:
 
 ### Features Left to Implement
 
-### Resources
+#### Resources
 - The ability at attach resources, such as scientific papers, research papers, graphs, charts, memos, or anything else that might help collabortors better understand the nature of the hazard or outcome.
 
 #### User Dashboard
@@ -131,8 +131,6 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 
                                                    |
 
-
-Each feature of the project was thoroughly tested to ensure it functions as intended. To this end, acceptance criteria are included in feature tickets for specific testing.
 
 ## Responsive Design
 
