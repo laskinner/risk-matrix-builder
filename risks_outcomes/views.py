@@ -83,7 +83,7 @@ def outcome_detail(request, slug):
             comment.author = request.user
             comment.outcome = outcome
             comment.save()
-            messages.success(request, "Comment submitted and awaiting approval")
+            messages.success(request, "Comment submitted and awaiting admin approval")
             return redirect("outcome_detail", slug=slug)  # Redirect to the same page
     else:
         comment_form = CommentForm()
@@ -112,7 +112,11 @@ def comment_edit(request, slug, comment_id, comment_type):
             comment = comment_form.save(commit=False)
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, "Comment Updated!")
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Comment updated and awaiting admin approval!",
+            )
 
             if comment_type == "hazard":
                 hazard = get_object_or_404(Hazard, slug=slug)
