@@ -9,8 +9,8 @@
         <h1 class="detail-title">{{ hazard.name }}</h1>
         <p class="detail-subtitle">{{ hazard.author }} | {{ hazard.created_on }}</p>
         <p class="detail-subtitle">Class: {{ hazard.hazard_tag}}</p>
-        <p class="detail-subtitle">Probability: {{ hazard.probability }}</p>
-        <p class="detail-subtitle">Severity: {{ hazard.severity }}</p>
+        <p class="detail-subtitle">Probability: {{ hazard.probability }}%</p>
+        <p class="detail-subtitle">Severity (1-10): {{ hazard.severity }}</p>
         <p class="detail-subtitle">Outcome: {{ hazard.outcome}}</p>
       </div>
       <!-- Resources Section -->
