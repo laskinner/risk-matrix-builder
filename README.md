@@ -27,11 +27,19 @@ Causa is a Django-based web application focused on identifying, cataloging, and 
 
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/f7953510-512b-4a96-8ff8-327626523476)
 
+Both the Hazard and Outcome List views are based upon the following mock-up:
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/b8a808b6-a776-45ed-a03c-8e766dad1870)
+
+
 #### Hazard and Outcome Detail Pages
 - Provides comprehensive information about each hazard and outcome.
 - Includes user comments and discussions, fostering a community-focused environment.
 
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/ca9cd8b7-6d87-40a9-bad6-0b6e43a5b6d9)
+
+Both and Hazard and Outcome Detail pages are bosed upon the following mock-up:
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/f5bb5d2c-06f9-494e-b55f-b0c251f9d370)
+
 
 
 #### Comment System
