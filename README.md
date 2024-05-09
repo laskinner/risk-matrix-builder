@@ -210,6 +210,7 @@ The "Causa" project follows a specific deployment process using GitHub for versi
 4. Ensure the main branch is selected.
 5. Click "Deploy Branch" to initiate the deployment process.
 6. After deployment, click "Open App" to view the live application.
+
 # Credits
 
 ## Content
