@@ -3,7 +3,7 @@
 Causa is a Django-based web application focused on identifying, cataloging, and mitigating various hazards and their associated outcomes. Designed for risk management professionals operating in high-stakes enivornemnts, such as human space flight, Causa offers a platform to catalog and discuss potential risks in various outcomes. The best way to use Causa is to delpoy the repo, deploy, and begin adding hazards and outcomes on the appropriate subject matter. Admins can contribute by adding hazards, detailing their probability and severity, and suggesting potential outcomes. The community aspect of Causa allows for a collaborative approach, where users can comment on and discuss each hazard, providing insights and solutions. This interactive environment makes Causa not just a risk assessment tool, but also a hub for learning and sharing knowledge about risk management in a dynamic, user-friendly interface.
 
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/05dc9ac1-257b-4dfb-a6b1-15c7ccff6c34)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/e751150a-d257-4f6d-bc04-5dbdad68ca45)
 
 [Link to livesite](https://django-luke-blog-2de7d643cd1a.herokuapp.com/)
 
@@ -18,14 +18,16 @@ Causa is a Django-based web application focused on identifying, cataloging, and 
 - Featured across all pages for easy and consistent navigation.
 - Enhances user experience by allowing seamless access to various sections of the site.
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/c82b816f-3b0f-48b0-96ba-0fa23d151eca)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/62245308-6c08-4340-ab1b-1cf549bfc341)
+
 
 
 #### Hazard and Outcome Lists
 - Displays user-contributed hazards and outcomes in an organized manner.
 - Aids users in quickly identifying and accessing specific risks and their details.
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/f7953510-512b-4a96-8ff8-327626523476)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/46405ae6-2f66-4816-80f0-ae291131f5d5)
+
 
 Both the Hazard and Outcome List views are based upon the following mock-up:
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/b8a808b6-a776-45ed-a03c-8e766dad1870)
@@ -35,7 +37,8 @@ Both the Hazard and Outcome List views are based upon the following mock-up:
 - Provides comprehensive information about each hazard and outcome.
 - Includes user comments and discussions, fostering a community-focused environment.
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/ca9cd8b7-6d87-40a9-bad6-0b6e43a5b6d9)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/66fc84e7-ec5a-48ef-9926-2c35007343dd)
+
 
 Both and Hazard and Outcome Detail pages are bosed upon the following mock-up:
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/f5bb5d2c-06f9-494e-b55f-b0c251f9d370)
@@ -46,14 +49,16 @@ Both and Hazard and Outcome Detail pages are bosed upon the following mock-up:
 - Engages users by allowing them to share insights and experiences related to various hazards and outcomes.
 - Strengthens the community aspect of the platform.
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/afb2bd76-6186-4d9d-9172-f33276127399)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/e5119a05-813b-4cae-a70f-faf33106b13f)
+
 
 
 #### User Authentication
 - Ensures a secure and personalized user experience.
 - Allows users to contribute and interact with content based on their interests and expertise.
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/0b3aa621-9720-43bc-99fb-2ba433e7e47c)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/6cd23897-3e16-4672-b6b3-bb4d04d8959d)
+
 
 #### Document Management
 - Allows admins to upload supporting documents, such as scientific papers or research, to specific hazards and outcomes.
@@ -63,41 +68,38 @@ Both and Hazard and Outcome Detail pages are bosed upon the following mock-up:
 - Allows admins to create valuable descriptions for hazards and outcomes.
 - Allows users to read descriptions to better understand the nature of the outcomes.
 
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/c6a582d5-037b-466e-ae32-2074c9cdad0e)
+
+
 #### Responsive Design
 - Optimized for various devices, ensuring accessibility and a consistent experience across all screen sizes.
 
-![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/6127c86b-da16-449f-a7e9-f74dd020ae88)
+![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/9b4a3ee2-d07c-4e06-923a-89fc610f0eb1)
 
 
 ### Features Left to Implement
 
-#### Resources
+#### Resources and Documents
 - The ability at attach resources, such as scientific papers, research papers, graphs, charts, memos, or anything else that might help collabortors better understand the nature of the hazard or outcome.
 
-#### User Dashboard
-- A personalized space for users to track their contributions and receive updates.
-- Aims to enhance user engagement and personalize the experience.
-
-#### Advanced Search and Filter
-- To provide enhanced search functionality, allowing users to filter content based on specific criteria.
+[Link to issue](https://github.com/laskinner/risk-matrix-builder/issues/9)
 
 #### Interactive Risk Matrix and Node Graph
 - A visual tool for mapping and understanding the interconnections between various hazards.
 - Aims to provide a more intuitive way of visualizing risks and their relationships.
 
+[Link to issue](https://github.com/laskinner/risk-matrix-builder/issues/11)
+
 #### Versioning
 - Implementing version control for user contributions to maintain the integrity of the information.
 
-#### DAG Interdependency
-- A visual representation of dependencies and relationships between different hazards and outcomes.
+[Link to issue](https://github.com/laskinner/risk-matrix-builder/issues/13)
 
-#### Conditional Probabilities
-- To offer insights into risks under varying conditions, enhancing the analytical aspect of risk assessment.
+#### Markdown Editor for description
 
-#### Composite Probability and Severity Equations
-- Advanced tools for calculating and understanding the combined impact of various risks.
+- To allow for better user experience, a full feature markdown editor for descriptions would be a great UX improvement.
 
-These features are designed to augment Causa's capabilities in risk analysis, making it a comprehensive tool for understanding and managing risks in various scenarios.
+[Link to issue](https://github.com/laskinner/risk-matrix-builder/issues/19)
 
 # Testing
 
@@ -160,7 +162,15 @@ risks_outcomes/urls.py:
 
 
 ## Unfixed Bugs and Issues
-All unfixed bugs and issues are catalogued in the [Kanban board]([url](https://github.com/users/laskinner/projects/6/views/1)).
+### Documents and Resources
+The primary bug which remains to be fixed is with regards to document upload. To complete this feature, a user also needs to be able to download the documents attached by the admin, which a user can not do. This bug and it's specific usability issues are document in issue [#15](https://github.com/laskinner/risk-matrix-builder/issues/15).
+
+### Editing Hazards and Outcomes in Production
+After much investigation, a cause was never discovered for this issue. However, editing the same hazards and outcomes on a local deploy works fine, therefore this issue isn't a show-stopper. It occurs when attempting to edit a hazard or outcome in the admin dashboard, but only in a production environment. It's possible to edit them locally, therefore the site is still usable. To edit a hazard or outcome, simply run "python3 manage.py runserver", and navigate to the admin Dashboard. This bug is reported in issue [#39](https://github.com/laskinner/risk-matrix-builder/issues/39).
+
+### General Styling
+The site could use a dark mode styling addition, which would add to the sites general UX. The decision was made not do this at this juncture not to incorporate dark mode, as getting the site across the finish line was the main priority, and introducing dark mode would likely require a long period of debugging. However, a color pallette was determined and documented in the styling updates issue, which is now close. This was document in issue [#32](https://github.com/laskinner/risk-matrix-builder/issues/32).
+
 
 ### Functionality
 #### Document management
