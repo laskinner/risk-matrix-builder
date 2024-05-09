@@ -5,7 +5,7 @@ Causa is a Django-based web application focused on identifying, cataloging, and 
 
 ![image](https://github.com/laskinner/risk-matrix-builder/assets/1858258/05dc9ac1-257b-4dfb-a6b1-15c7ccff6c34)
 
-[Link to Live Site]([url](https://risk-matrix-builder-e54f9998e9bb.herokuapp.com/))
+[Link to livesite]([url](https://django-luke-blog-2de7d643cd1a.herokuapp.com/))
 
 
 # Causa Project Readme
@@ -103,7 +103,7 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 
 ## CRUD Comments -- Hazards
 
-[Link to issue.]([url](https://github.com/laskinner/risk-matrix-builder/issues/36))
+[Link to issue](https://github.com/laskinner/risk-matrix-builder/issues/36)
 
 | As a/an    | I want to be able to             | So that I can                                       | Expected Results                                   | Actual Results                                     |
 |------------|----------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
