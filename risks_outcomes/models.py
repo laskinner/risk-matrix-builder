@@ -22,7 +22,10 @@ class Hazard(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=[(0, "Draft"), (1, "Published")], default=0)
+    status = models.IntegerField(choices=[
+        (0, "Draft"),
+        (1, "Published")
+    ], default=0)
     supporting_documents = CloudinaryField("document", default="placeholder")
 
     def save(self, *args, **kwargs):
@@ -45,7 +48,10 @@ class Outcome(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=[(0, "Draft"), (1, "Published")], default=0)
+    status = models.IntegerField(choices=[
+        (0, "Draft"),
+        (1, "Published")
+    ], default=0)
     supporting_documents = CloudinaryField("document", default="placeholder")
 
     def save(self, *args, **kwargs):
@@ -105,5 +111,6 @@ class Document(models.Model):
 
     def __str__(self):
         return (
-            f"Document for " f"{self.hazard.name if self.hazard else self.outcome.name}"
+            f"Document for "
+            f"{self.hazard.name if self.hazard else self.outcome.name}"
         )
