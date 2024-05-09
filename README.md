@@ -120,19 +120,9 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 ## User Account Creation and Authentication
 | As a/an           | I want to be able to                          | So that I can                                       | Expected Results                                   | Actual Results                                     |
 |-------------------|-----------------------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Visitor           | sign up for a new user account                | gain access to posting and commenting features       | User account is created and user can log in        | Passed <img width="582" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/1a4f846c-af19-4f87-bc22-275feac4d059"> <img width="1430" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/5fa13021-f20f-40d1-aa30-0d407884d957">
-
-                                                     |
-| Registered User   | log in to my account                          | access my user profile and personalize my experience | User is logged in and directed to profile page     | Passed <img width="418" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/2e9e83fd-1db6-4487-afc1-89c26c4c14d9"> <img width="433" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/89fde9d5-ef33-4876-9fd2-9a745fea5d53"> <img width="1016" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/64473762-babd-422b-8b42-cd1e1ebff663">
-
-
-                                                     |
-| Logged-in User    | log out of my account                         | ensure my account is secure when not in use          | User is logged out and session is ended            | Passed <img width="378" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/93b55959-fdea-4fa5-8e2e-3272aad87972"> <img width="975" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/32743b09-6346-4e07-bd34-0a9194b80bd9">
-
-                                                   |
-
-
-## Responsive Design
+| Visitor           | sign up for a new user account                | gain access to posting and commenting features       | User account is created and user can log in        | Passed <img width="582" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/1a4f846c-af19-4f87-bc22-275feac4d059"> <img width="1430" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/5fa13021-f20f-40d1-aa30-0d407884d957"> |
+| Registered User   | log in to my account                          | access my user profile and personalize my experience | User is logged in and directed to profile page     | Passed <img width="418" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/2e9e83fd-1db6-4487-afc1-89c26c4c14d9"> <img width="433" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/89fde9d5-ef33-4876-9fd2-9a745fea5d53"> <img width="1016" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/64473762-babd-422b-8b42-cd1e1ebff663"> |
+| Logged-in User    | log out of my account                         | ensure my account is secure when not in use          | User is logged out and session is ended            | Passed <img width="378" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/93b55959-fdea-4fa5-8e2e-3272aad87972"> <img width="975" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/32743b09-6346-4e07-bd34-0a9194b80bd9"> |
 
 ## Browser and Device Compatibility
 
@@ -202,14 +192,22 @@ The "Causa" project follows a specific deployment process using GitHub for versi
 2. Upon completion, changes are merged into the master branch through pull requests.
 3. Changes are reviewed and potentially accepted into the master branch.
 
-### Deployment on Heroku:
+### Deployment:
 
-1. Access the Heroku dashboard and open the specific app for "Causa".
-2. Navigate to the "Deploy" tab within the Heroku app dashboard.
-3. Scroll to the "Manual Deploy" section.
-4. Ensure the main branch is selected.
-5. Click "Deploy Branch" to initiate the deployment process.
-6. After deployment, click "Open App" to view the live application.
+It is recommended to begin with a clean database to begin cataloguing new risks and hazards. To do so, use a SQL provider. This reposotiry uses [ElephantSQL]([url](https://www.elephantsql.com/)).
+
+This project was deployed using Heroku, however any hosting provider compatible with SQL and Django will work.
+
+To depoy:
+1. Fork this respository using Github or another version contral manager.
+2. Be sure to adjust Settings.py to utiliize env.py, SECRET_KEY, and your hosting provider is added to allowed hosts.
+3. Add the SECRET_KEY and DATABE_URL in env.py
+4. Add env.py to .gitignore
+5. Crete a Procfile and declare this to be a webprocess.
+6. Collect the static files by running collectstatic.
+7. Push code to Github or a version control manager of your choice.
+8. Create the app on your hosting provider, add the DATABASE_URL and SECRET_KEY, and connect it it the repo.
+9. Deploy code, and begin using.
 
 # Credits
 
