@@ -102,6 +102,9 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 # Testing
 
 ## CRUD Comments -- Hazards
+
+[Link to issue.]([url](https://github.com/laskinner/risk-matrix-builder/issues/36))
+
 | As a/an    | I want to be able to             | So that I can                                       | Expected Results                                   | Actual Results                                     |
 |------------|----------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | User       | add a comment to a specific hazard | share my observations or concerns                    | Comment is added and visible under the hazard      | Passed  <img width="1311" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/70b1f1e0-78d2-401c-93b9-1f988a39edd2"> <img width="505" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/8db08445-33f4-4748-b059-9a7cdf65a474"> <img width="420" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/76cf6121-a8e8-49d2-ab8f-c4cebf8433a4">    |
@@ -110,6 +113,8 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 | Commenter  | delete my comment on a hazard      | remove my input if it is no longer relevant or needed| Comment is removed and no longer visible           |  Passed <img width="1258" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/9da73f9b-72c3-45c2-8f7e-7a310b2bce69"> <img width="1079" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/013d4ac6-2dfe-4ff1-aefc-24888f72a129"> |
 
 ## CRUD Comments -- Outcomes
+
+[Link to issue]([url](https://github.com/laskinner/risk-matrix-builder/issues/37))
 | As a/an    | I want to be able to               | So that I can                                       | Expected Results                                   | Actual Results                                     |
 |------------|------------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | User       | add a comment to a specific outcome | provide feedback or share my thoughts                | Comment is added and visible under the outcome     | Passed <img width="1147" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/6627e8fc-8e03-4f8f-bff4-179ac6aedee5"> <img width="1009" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/09b2bbe7-c3d3-486c-99ae-dc937a488cb4"> <img width="523" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/c0d10f0e-9635-4c07-8837-d224c02699b6"> |
@@ -118,6 +123,8 @@ These features are designed to augment Causa's capabilities in risk analysis, ma
 | Commenter  | delete my comment on an outcome     | remove my remarks if they are outdated or incorrect  | Comment is removed and no longer visible           | Passed <img width="1023" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/78a567fb-b37a-4d7f-98e0-13984a204441"> <img width="915" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/6f568cc5-749a-4e76-b6a9-21898c273836"> |
 
 ## User Account Creation and Authentication
+
+[Link to issue]([url](https://github.com/laskinner/risk-matrix-builder/issues/38))
 | As a/an           | I want to be able to                          | So that I can                                       | Expected Results                                   | Actual Results                                     |
 |-------------------|-----------------------------------------------|-----------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Visitor           | sign up for a new user account                | gain access to posting and commenting features       | User account is created and user can log in        | Passed <img width="582" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/1a4f846c-af19-4f87-bc22-275feac4d059"> <img width="1430" alt="image" src="https://github.com/laskinner/risk-matrix-builder/assets/1858258/5fa13021-f20f-40d1-aa30-0d407884d957"> |
