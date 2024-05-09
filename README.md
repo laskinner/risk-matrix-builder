@@ -171,30 +171,8 @@ After much investigation, a cause was never discovered for this issue. However, 
 ### General Styling
 The site could use a dark mode styling addition, which would add to the sites general UX. The decision was made not do this at this juncture not to incorporate dark mode, as getting the site across the finish line was the main priority, and introducing dark mode would likely require a long period of debugging. However, a color pallette was determined and documented in the styling updates issue, which is now close. This was document in issue [#32](https://github.com/laskinner/risk-matrix-builder/issues/32).
 
-
-### Functionality
-#### Document management
-While document management works fine through the admin portal, documents are buggy and troublesome in the app UI. Document names aren't being displayed, and the download link doesn't fuction. These need to be address and this feature will work.
-
-#### Favicon
-Favicon needs to be added to eliminate 404 errors from console, and provide image in browser tab
-
-#### Deleting Comments
-The Delete comment functionality currently doesn't work. This is likely due to a routing issue, either with the way the javascript helper in comments.js is constructing the URL, or in the way the urls.py is expecting. This proved to be a very difficult problem to understand. For example, editing comments had a similar issue, and it took roughly 1 working day to fix. After many hours of trying to fix this issue, it had to be left as it is in order to complete the project.
-
-### Styles
-#### List view
-Currently, the list view could use some attention, specically around the cards.
-
-#### Hazard and Outcome details
-Probability needs to better displayed as integars, not floats, and with % signs
-
-#### Edit Button
-The edit button for comments lacks styling
-
-## Data
-#### Fixtures
-The project could use more data via fixtures to display pagination, and enrich the overall look and feel of the site.
+### Favicon
+Favicon needs to be added to eliminate 404 errors from console, which can be found in [#40](https://github.com/laskinner/risk-matrix-builder/issues/40).
 
 Currently 
 # Deployment
